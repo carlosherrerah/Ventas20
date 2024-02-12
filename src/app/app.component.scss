@@ -1,0 +1,59 @@
+/*
+li:nth-child(odd) {
+    background-color: #999999;
+}
+
+li:nth-child(even) {
+    background-color: #CCCCCC;
+}
+*/
+
+/*
+.highlighted {
+    background-color: #999999;
+}
+*/
+
+.selected {
+    background-color: red;
+    color:aqua;
+    padding: 10px;
+}
+.unSelected {
+    background-color: white;
+    padding: 10px;
+}
+
+.blue {
+    color: blue;
+}
+
+.red {
+    color:red($color: #e52626)
+}
+
+.pink{
+    color:pink;
+}
+
+ul {
+
+    li {
+      cursor: pointer;
+      padding: 0.5rem;
+  
+      &:hover {
+        background-color: rgb(202, 202, 202);
+        color: white;
+      }
+  
+      &.alert:hover {
+        background-color: #cff4fc;
+      }
+    }
+  
+  }
+  
+  .alert {
+    padding: 0.5rem;
+  }

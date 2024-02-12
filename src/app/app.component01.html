@@ -1,0 +1,54 @@
+<!--
+<app-button></app-button>
+<app-button></app-button>
+
+<p>{{title}} con Angular</p>
+<p>Total: {{ 5 + 2 }}</p>
+<img src="{{url}}" alt="Imagen" width="200" height="200">
+<br>
+-->
+
+<p *ngIf="name">El nombre es: {{name}}</p>
+<input type="text" [(ngModel)]="name">
+
+<!--
+<div *ngIf="Employees.length">
+    Ciudades de Europa
+</div>
+<ul>
+    <li>Barcelona</li>
+    <li>Madrid</li>
+    <li>España</li>
+</ul>
+-->
+
+<!-- <div *ngIf="Employees.length > 1;  else Ciudad">Mis Ciudades</div> -->
+
+<!-- <div *ngIf="Employees.length > 1; then Ciudades; else Ciudad"></div> -->
+<!--
+<ng-container *ngIf="Employees.length > 1; then Ciudades; else Ciudad"></ng-container> 
+<ng-template #Ciudades>Ciudades</ng-template>
+<ng-template #Ciudad>Ciudad</ng-template>
+<ul *ngFor="let Employee of Employees; index as i; odd as o; even as e" [class.highlighted]="e">
+    <li>{{i}} {{o}} {{e}} {{Employee}}</li>
+</ul>
+-->
+<!-- <ul *ngFor="let Employee of Employees; even as e" [class.highlighted]="e"> -->
+<ul>    
+<li *ngFor="let Employee of Employees; let i = index;" (click)="onEmployeeClicked(Employee)" [ngClass]="{'selected': Employee==selection}">{{ Employee }} </li>
+    <!-- <li style="color:red">{{Employee}}</li> -->
+    <!-- <li [ngStyle]='{"color":"orange", "background-color": Employee =="Madrid" ? "red": "blue"}'>{{Employee}}</li> -->
+    <!-- <li [ngClass]="'selected blue'"> {{ Employee }} </li> -->
+    <!-- <li [ngClass]="['selected', 'blue']"> {{ Employee }} </li>  -->
+    <!-- <li [ngClass]="{'selected': true, 'blue':true}"> {{ Employee }} </li>  -->
+    <!-- <li [ngClass]="{'selected': Employee=='Barcelona', 'blue': Employee!='Barcelona'}"> {{ Employee }} </li> -->
+    <!-- <li *ngIf='i % 2 === 0'> {{ Employee }} </li> -->
+    <!-- <li (click)="onEmployeeClicked(Employee)" [ngClass]="{'selected': Employee==selection}"> {{ Employee }} </li> -->
+</ul>
+
+<div *ngIf="selection">
+    <p>Your Employee is: {{selection}}</p>
+    <!-- <button (click)="onClear()">Clear your Selection</button> -->
+    <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear your Selection'" [selection]="selection"></app-button>
+    <!-- <app-button (click)="onClear()" [color]="'green'" [label]="'Dominicode'"></app-button> -->
+</div>

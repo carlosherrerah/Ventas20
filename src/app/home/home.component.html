@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 my-3">
+      <app-form-new-item [selection]="selection" 
+      (updateItemEvent)="updateEmployee($event)"
+      (newItemEvent)="addNewEmployee($event)" [label]="'Employee'"
+        [className]="'btn-info'"></app-form-new-item>
+    </div>
+    <div class="col-md-6 my-3">
+      <input type="text" class="form-control" placeholder="Filter..." [(ngModel)]="criteria">
+    </div>
+    <hr>
+    <div class="col md-8">
+        <app-Employees *ngFor="let Employee of (Employees | filter:criteria)" 
+        (EmployeeDeleteEvent)="onEmployeeDelete($event)"
+        (EmployeeSelectedEvent)="onEmployeeSelected($event)"
+          [Employee]="Employee" [selection]="selection"></app-Employees>
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="selection?.lastname">
+        <p>Your Employee is: {{selection?.lastname}}</p>
+        <app-button (click)="onClear()" [color]="'blue'" [label]="'Clear your Selection'"></app-button>
+      </div>
+    </div>
+  </div>
+</div>
