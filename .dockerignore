@@ -1,5 +1,4 @@
 .vscode/
 .angular/
 node_modules/
-Dockerfile
 .dockerignore
